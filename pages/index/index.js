@@ -1,0 +1,94 @@
+//index.js
+//获取应用实例
+const app = getApp()
+
+Page({
+  data: {
+    motto: 'Hello World',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    openid: ""
+  },
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  // ------
+
+  getOpenid1: function() {
+    let i = 0;
+    while (i < 7) {
+      wx.requestSubscribeMessage({
+        tmplIds: ['SkXWwd2i8MEF2wIj0gNZpjwqP2Zm1sce0ZJvqSbTtPM'],
+        success(res) {
+          console.log('已授权接收订阅消息')
+        }
+      });
+      i++;
+    }
+
+  },
+  getOpenid2() {
+    let that = this;
+    //获取openid不需要授权
+    wx.login({
+      success: function(res) {
+        console.log("code:" + res.code)
+        //请求自己后台获取用户openid
+        wx.request({
+          url: 'https://lin.nenuyouth.com/server/openid.php',
+          data: {
+            code: res.code
+          },
+          success: response => {
+            console.log(response)
+            let openid = response.data.openid;
+            that.setData({
+              openid
+            })
+          }
+        })
+      }
+    })
+  },
+  // ------
+  onLoad: function() {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  }
+})
