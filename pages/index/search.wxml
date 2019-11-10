@@ -1,0 +1,48 @@
+<!-- 顶部楔形 -->
+<view id="top">
+  <view id="setting">口 设置</view>
+  <view class="textBox">
+    <view id="name">林传舜</view>
+    <view id="desc">（身份未确认）</view>
+  </view>
+</view>
+<view id="slash"></view>
+<!-- 顶部楔形 over -->
+<!-- 波浪效果 -->
+<view class="waves">
+  <view class="wave w1"> </view>
+  <view class="wave w2"> </view>
+  <view class="wave w3"> </view>
+</view>
+<!-- 波浪效果 over -->
+<view id="avator">
+  <image mode="widthFix" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573831189&di=5d829b834214adec6ee426685d4c878c&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.qqzhi.com%2Fuploads%2F2018-12-05%2F122603424.jpg"></image>
+</view>
+<!-- 横排菜单(flex布局) -->
+<view class="middleBar">
+  <view class="item">
+    <view class="icon">口</view>
+    <view>菜单内容</view>
+  </view>
+
+  <view class="item">
+    <view class="icon">口</view>
+    <view>菜单内容</view>
+  </view>
+  <view class="item">
+    <view class="icon">口</view>
+    <view>菜单内容</view>
+  </view>
+</view>
+<!-- 横排菜单(flex布局) over-->
+
+<view class="menu">
+  <view class="relative">
+    <view class="item">
+      <view id="rotate">^</view>
+      <view>口 菜单内容</view>
+    </view>
+    <view class="item">口 菜单内容</view>
+    <view class="item bigMarginTop">口 菜单内容</view>
+  </view>
+</view>

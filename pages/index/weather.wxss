@@ -1,0 +1,17 @@
+/* pages/index/weather.wxss */
+
+.weather image {
+  width: 250rpx;
+  float: right;
+}
+
+.weather .pro {
+  width: 400rpx;
+  display: inline-block;
+}
+.weather text{
+  display: block
+}
+.black{
+  background: black
+}

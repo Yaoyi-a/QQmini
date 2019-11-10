@@ -1,7 +1,9 @@
 <view class="wrapper">
   <view class="cards">
-    <!-- <view class="card" id="firstCard"></view> -->
     <view style="background:{{item.bg}}" wx:for="{{cardSet}}" class="card {{item.class}}">{{item.id}}</view>
+    <navigator url="food">
+      <button>food</button>
+    </navigator>
     <button bindtap="addClass">GO</button>
   </view>
 </view>
