@@ -1,6 +1,6 @@
 <view id="choiceArea">
 <view id="dice">
-<image wx:show="{{show}}" src="https://lin.nenuyouth.com/mini/dice.png"></image>
-<image wx:for="{{dices}}" wx:key="index" wx:show="{{index}}" src="https://lin.nenuyouth.com/mini/dice{{index+1}}.gif"></image>
+<image wx:show="{{show}}" src="https://buyaobishige.github.io/mini/mini/dice.png"></image>
+<image wx:for="{{dices}}" wx:key="index" wx:show="{{index}}" src="https://buyaobishige.github.io/mini/mini/dice{{index+1}}.gif"></image>
 </view>
 </view>
