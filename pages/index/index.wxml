@@ -1,6 +1,13 @@
 <view id="choiceArea">
-<view id="dice">
-<image wx:show="{{show}}" src="https://buyaobishige.github.io/mini/mini/dice.png"></image>
-<image wx:for="{{dices}}" wx:key="index" wx:show="{{index}}" src="https://buyaobishige.github.io/mini/mini/dice{{index+1}}.gif"></image>
-</view>
+  <view bindtap="startDice" id="dice">
+    <view id="tip">
+      <view hidden="{{!showTip}}">
+        <text>就决定\n是你了\n</text>
+        <text id="click">(点我)</text>
+      </view>
+    </view>
+    <view class="dice" display="{{!display}}" wx:for="{{dices}}" wx:key="index" hidden="{{!item}}">
+      <image src="https://buyaobishige.github.io/mini/mini/dice{{index+1}}.gif"></image>
+    </view>
+  </view>
 </view>
