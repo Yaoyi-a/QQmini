@@ -4,23 +4,22 @@
 }
 
 #dice {
-  top: 200rpx;
-  position: absolute;
+  top: 120rpx;
+  position: relative;
+  left: 60rpx;
 }
 
 .dice {
-  position: absolute;
-  top: 20rpx;
-  left: 30rpx;
+  position: relative;
+  top: 120rpx;
+  left: 60rpx;
 }
 
 #tip {
   position: absolute;
   font-size: 45rpx;
-  /* top: 100rpx;
-  left: 100rpx; */
   padding: 30rpx 30rpx;
-  width:200rpx;
+  width: 200rpx;
   min-height: 180rpx;
   text-align: center;
   background: linear-gradient(#c75a4d, #c75a4d) left top,
@@ -34,6 +33,145 @@
   background-repeat: no-repeat;
   background-size: 1px 24px, 24px 1px;
 }
-#click{
-  font-size: 32rpx
+
+#click {
+  font-size: 32rpx;
+}
+
+.tipbox {
+  transition: all 1s;
+}
+
+/* fangjiaxin */
+
+.place {
+  display: inline-block;
+  background-color: white;
+  color: rgb(248, 114, 97);
+  height: 20px;
+  width: 150px;
+  text-align: center;
+  border-right: rgb(251, 86, 85) 1px solid;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.hover1 {
+  color: rgb(251, 86, 85);
+  background-color: rgb(253, 219, 219);
+}
+
+.flex {
+  white-space: nowrap;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+.food {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.food {
+  margin: 20px;
+}
+
+.random {
+  margin-top: 20px;
+  height: 300px;
+  background-color: rgb(250, 237, 237);
+  display: flex;
+}
+
+.kk {
+  height: 150px;
+  width: 150px;
+  margin-top: 100px;
+}
+
+.btn {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  background-color: rgb(251, 86, 85);
+  color: white;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: 0px;
+}
+
+.hover {
+  background-color: rgb(253, 54, 54);
+}
+
+/*.card{
+    width: 500px;
+    height: 120px;
+    background-color: coral;
+    
+}*/
+
+.random {
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: rgb(167, 202, 216);
+  color: white;
+  height: 25px;
+  width: 120px;
+  text-align: center;
+  border: rgb(198, 214, 233) 1px solid;
+  margin: 10px;
+}
+
+.tag2 {
+  margin-left: 50px;
+}
+
+.atag {
+  display: inline-block;
+  background-color: rgb(244, 146, 85);
+  color: white;
+  height: 20px;
+  width: 70px;
+  text-align: center;
+  margin: 10px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.btag {
+  display: inline-block;
+  background-color: rgb(248, 179, 58);
+  color: white;
+  height: 20px;
+  width: 70px;
+  text-align: center;
+  margin: 10px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.ctag {
+  display: inline-block;
+  background-color: rgb(255, 160, 177);
+  color: white;
+  height: 20px;
+  width: 70px;
+  text-align: center;
+  margin: 10px;
+  font-size: 13px;
+  border-radius: 5px;
 }

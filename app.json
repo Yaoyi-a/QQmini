@@ -9,9 +9,9 @@
     "pages/logs/logs"
   ],
   "tabBar": {
-    "color": "green",
-    "selectedColor": "green",
-    "backgroundColor": "green",
+    "color": "black",
+    "selectedColor": "#C75A4D",
+    "backgroundColor": "white",
     "list": [
       {
         "pagePath": "pages/index/index",

@@ -1,13 +1,136 @@
-<view id="choiceArea">
-  <view bindtap="startDice" id="dice">
-    <view id="tip">
-      <view hidden="{{!showTip}}">
-        <text>就决定\n是你了\n</text>
-        <text id="click">(点我)</text>
-      </view>
+<view class="flex">
+  <scroll-view scroll-x="{{true}}">
+    <navigator class="place" hover-class="hover1">北苑</navigator>
+    <navigator class="place" hover-class="hover1">南苑</navigator>
+    <navigator class="place" hover-class="hover1">净月</navigator>
+    <navigator class="place" hover-class="hover1">校外</navigator>
+  </scroll-view>
+</view>
+<view class="flex">
+  <scroll-view scroll-x="{{true}}">
+    <view class="food" style="background-color:rgb(244,146,85)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/rice.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">米饭</view>
+      </navigator>
     </view>
-    <view class="dice" display="{{!display}}" wx:for="{{dices}}" wx:key="index" hidden="{{!item}}">
-      <image src="https://buyaobishige.github.io/mini/mini/dice{{index+1}}.gif"></image>
+    <view class='food' style="background-color:rgb(248,179,58)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/noodle.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">面条</view>
+      </navigator>
+    </view>
+    <view class="food" style="background-color:rgb(255,160,177)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/tea.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">奶茶</view>
+      </navigator>
+    </view>
+    <view class='food' style="background-color:rgb(255,166,68)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/veg.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">蔬菜</view>
+      </navigator>
+    </view>
+    <view class="food" style="background-color:rgb(146,205,207)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/por.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">粥</view>
+      </navigator>
+    </view>
+  </scroll-view>
+</view>
+<view class="flex">
+  <scroll-view scroll-x="{{true}}">
+    <view class="food" style="background-color:rgb(146,205,207)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/shrimp.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">龙虾</view>
+      </navigator>
+    </view>
+    <view class='food' style="background-color:rgb(255,166,68)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/fry.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">鸡肉</view>
+      </navigator>
+    </view>
+    <view class="food" style="background-color:rgb(255,160,177)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/barbe.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">烤肉</view>
+      </navigator>
+    </view>
+    <view class='food' style="background-color:rgb(248,179,58)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/dumpling.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">饺子</view>
+      </navigator>
+    </view>
+    <view class="food" style="background-color:rgb(244,146,85)">
+      <navigator url='' class="food1">
+        <image src="/pages/images/beef.png" class="icon"></image>
+        <view class="text" style="font-size: 11px;color: rgba(0,0,0);">牛肉</view>
+      </navigator>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="random">
+  <view id="choiceArea">
+    <view bindtap="startDice" id="dice">
+      <view>选择困难症看这!</view>
+      <view id="tip">
+        <view class="tipbox" hidden="{{!showTip}}">
+          <!-- <text>{{tip}}</text> -->
+          <image src="http://img4.imgtn.bdimg.com/it/u=387550111,1680622983&fm=26&gp=0.jpg"></image>
+          <text hidden="{{!showClick}}" id="click">(点我)</text>
+        </view>
+      </view>
+      <view class="dice " wx:for="{{dices}}" wx:key="index" hidden="{{!item.show}}">
+        <image src="https://buyaobishige.github.io/mini/mini/dice{{item.mode==false?index+1:(index+1)*11}}.gif "></image>
+      </view>
+      <view>你还有{{x}}次机会</view>
+      <view>你摇到了{{value}}点</view>
     </view>
   </view>
+
+  <view class="cube">
+    <image src="/pages/images/footgood.jpg" class="kk"></image>
+  </view>
+  <view class="button">
+    <button class="btn" hover-class="hover">随机选择</button>
+  </view>
+  <view class="card"></view>
+</view>
+<view class="flex">
+  <scroll-view scroll-x="{{true}}">
+    <view class="tag1">
+      <navigator class="atag" hover-class="hover2">酸</navigator>
+      <navigator class="atag" hover-class="hover2">甜</navigator>
+      <navigator class="atag" hover-class="hover2">苦</navigator>
+      <navigator class="atag" hover-class="hover2">辣</navigator>
+      <navigator class="atag" hover-class="hover2">咸</navigator>
+      <navigator class="atag" hover-class="hover2">少油少盐</navigator>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-x="{{true}}">
+    <view class="tag2">
+      <navigator class="btag" hover-class="hover3">四川风味</navigator>
+      <navigator class="btag" hover-class="hover3">北京风味</navigator>
+      <navigator class="btag" hover-class="hover3">东北风味</navigator>
+      <navigator class="btag" hover-class="hover3">赣菜</navigator>
+      <navigator class="btag" hover-class="hover3">西北风味</navigator>
+      <navigator class="btag" hover-class="hover3">粤菜</navigator>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-x="{{true}}">
+    <view class="tag3">
+      <navigator class="ctag" hover-class="hover4">炒菜</navigator>
+      <navigator class="ctag" hover-class="hover4">煮菜</navigator>
+      <navigator class="ctag" hover-class="hover4">炖菜</navigator>
+      <navigator class="ctag" hover-class="hover4">凉菜</navigator>
+      <navigator class="ctag" hover-class="hover4">面食</navigator>
+      <navigator class="ctag" hover-class="hover4">油炸</navigator>
+    </view>
+  </scroll-view>
 </view>
