@@ -1,18 +1,85 @@
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.selected {
+  background: #68be8d !important;
+}
+
+.placeholder {
+  margin-top: -5rpx;
+  margin-left: 5%;
+}
+
+.placeholder .box text {
+  color: grey;
+  font-size: 24rpx;
+}
+
+.placeholder .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  border: 2rpx solid grey;
+  padding: 5rpx 20rpx;
+  border-radius: 10rpx;
+}
+
+#searchImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
 #dice image {
   width: 200rpx;
   height: 200rpx;
 }
 
+#choiceArea {
+  width: 375rpx;
+}
+
+.basicSet .item {
+  background: orange;
+}
+
+.tastySet .item {
+  background: lightgoldenrodyellow;
+}
+
+.basic {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.basic .item {
+  width: 45%;
+  text-align: center;
+  margin-top: 10rpx;
+  border: 2rpx solid white;
+  border-radius: 15rpx;
+}
+
+.random .right {
+  width: 375rpx;
+  padding: 6% 0;
+}
+
 #dice {
-  top: 120rpx;
+  top: 130rpx;
   position: relative;
   left: 60rpx;
 }
 
 .dice {
   position: relative;
-  top: 120rpx;
-  left: 60rpx;
+  left: 30rpx;
+  top: 30rpx;
 }
 
 #tip {
@@ -20,7 +87,7 @@
   font-size: 45rpx;
   padding: 30rpx 30rpx;
   width: 200rpx;
-  min-height: 180rpx;
+  height: 200rpx;
   text-align: center;
   background: linear-gradient(#c75a4d, #c75a4d) left top,
                 linear-gradient(#c75a4d, #c75a4d) left top,
@@ -39,7 +106,20 @@
 }
 
 .tipbox {
-  transition: all 1s;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.tipbox {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+#points {
+  position: absolute;
+  top: 270rpx;
+  width: 250rpx;
+  text-align: center;
 }
 
 /* fangjiaxin */
@@ -137,7 +217,7 @@
 }
 
 .tag2 {
-  margin-left: 50px;
+  margin-left: 30rpx;
 }
 
 .atag {

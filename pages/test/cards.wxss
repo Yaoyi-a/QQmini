@@ -1,13 +1,37 @@
+.portfolio {
+  display: flex;
+  justify-content: center;
+}
+.foodImg{
+  width: 100%;
+}
+.portfolio image {
+  width: 150rpx;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
+.btn-group {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.btn-group .btn {
+  width: 200rpx;
+  height: 250rpx;
+}
+
 .cards {
   perspective-origin: 50% -50%;
   width: 700rpx;
-  height: 450rpx;
+  /*  */
+  height: 850rpx;
+  /*  */
   transform-style: preserve-3d;
   position: relative;
   perspective: 1000rpx;
@@ -15,10 +39,10 @@
 
 .cards .card {
   position: absolute;
-  top: 500rpx;
+  /* top: 500rpx; */
   left: 0;
   width: 700rpx;
-  height: 200px;
+  height: 420px;
   border: 2rpx solid black;
   background: rgba(0, 0, 0, 0.1);
 }
@@ -42,20 +66,16 @@
 @keyframes shrink {
   0% {
     transform: scale3D(1, 1, 1);
-    top: 200rpx;
+    top: -200rpx;
   }
 
-  35% {
+ 50% {
     transform: scale3D(1.2, 1.2, 1);
-    top: 600rpx;
-  }
-
-  70% {
-    transform: scale3D(0.2, 0.2, 1);
+    top: -200rpx;
   }
 
   100% {
-    top: -200rpx;
+    top: 1200rpx;
     transform: scale3D(0.2, 0.2, 1);
   }
 }

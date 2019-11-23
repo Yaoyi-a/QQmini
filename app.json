@@ -1,12 +1,14 @@
 {
   "pages": [
+    "pages/test/remark.js",
+    "pages/views/restaurant",
     "pages/index/index",
-    "pages/index/scrolltext",
     "pages/test/food",
-    "pages/index/search",
     "pages/test/cards",
-    "pages/index/weather",
-    "pages/logs/logs"
+    "pages/test/scrolltext",
+    "pages/index/user",
+    "pages/logs/logs",
+    "pages/views/favor"
   ],
   "tabBar": {
     "color": "black",
@@ -18,12 +20,12 @@
         "text": "weather"
       },
       {
-        "pagePath": "pages/index/index",
-        "text": "weather"
+        "pagePath": "pages/test/cards",
+        "text": "card"
       },
       {
-        "pagePath": "pages/test/cards",
-        "text": "weather"
+        "pagePath": "pages/index/user",
+        "text": "user"
       }
     ]
   },

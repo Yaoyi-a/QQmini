@@ -1,0 +1,51 @@
+<view class="bg">
+  <view id="restaurantPanel">
+    <view class="title">妈妈亲饺子馆</view>
+    <view class="locate">北苑食堂一楼</view>
+    <view class="des">全聚德，中华老字号，创建于1864年（清朝同治三年），历经几代创业拼搏获得了长足发展。1999年1月，“全聚德”被国家工商总局认定为“驰名商标”</view>
+  </view>
+  <view>
+    <image mode="widthFix" style="width:100vw" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3618941280,553101522&fm=26&gp=0.jpg"></image>
+  </view>
+  <view class="VerticalBox">
+    <!-- 侧边栏 -->
+    <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
+      <view class="cu-item {{index === TabCur? 'text-color cur': ''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <!-- 菜单项 -->
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 230px)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+      <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}">
+        <view class='cu-bar solid-bottom bg-white'>
+          <view class='action'>
+            <text class='cuIcon-title text-color' /> {{item.name}}
+          </view>
+        </view>
+        <view class="cu-list menu-avatar">
+          <view class="cu-item" wx:for="{{item.content}}" wx:for-item="List">
+            <!-- <view class="cu-avatar {{List.round?'round':''}} lg" style="background-image:url({{List.img}});" /> -->
+            <image class="cu-avatar {{List.round?'round':''}} lg" src="{{List.img}}" />
+            <view class="content">
+              <view wx:if="{{List.badge}}" class=" ">
+                <text class="text-cut">{{List.name}}</text>
+                <view class="cu-tag round bg-{{List.badgeColor}} sm">{{List.badge}}</view>
+              </view>
+              <view wx:else class=" ">{{List.name}}</view>
+              <view class="  text-sm flex">
+                <text class="text-cut">{{List.desc}}</text>
+              </view>
+            </view>
+            <view class="action">
+              <view class="">￥{{List.price}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<view id="remark">
+
+</view>

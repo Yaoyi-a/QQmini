@@ -1,39 +1,90 @@
-let dices = [{
+let dices= [{
     show: false,
-    mode: false
   },
   {
     show: false,
-    mode: false
   },
   {
     show: false,
-    mode: false
   },
   {
     show: false,
-    mode: false
   },
   {
     show: false,
-    mode: false
   },
   {
     show: false,
-    mode: false
-  },
+  }
 ];
+let sale1 = [{
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}]
+let sale2 = [{
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, {
+  name: "name",
+  myclass: ""
+}, ]
 let recentValue = null;
 let value = null;
 let x = 3;
 Page({
   data: {
+    sale1,
+    sale2,
     x,
-    tip: "需要我来帮你？\n",
     dices,
     showTip: true,
-    showClick: true,
-    value: 0
+    value: 0,
+    url: "../../mini/dice0.png"
   },
   randomValue() {
     let rand = Math.floor(1 + Math.random() * (5));
@@ -43,28 +94,24 @@ Page({
     value = rand
   },
   startDice() {
+    for (let i = 0; i < 12; i++) {
+      sale2[i].myclass=""
+    }
+    for (let i = 0; i < 6; i++) {
+      sale1[i].myclass=""
+    }
     if (x < 1) {
       for (let i = 0; i < 6; i++) {
         dices[i].show = false;
       };
+      x = x - 1;
       this.setData({
-        x: 0,
+        x,
         dices,
-        tip: "选恐患者下顿饭再来吧",
         showTip: true,
-        showClick: false
+        url: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573536751126&di=1fe46740ed5bd4a1b048e5e43a20d39d&imgtype=0&src=http%3A%2F%2Fm.xz7.com%2Fup%2F2016-2%2F2016223143828.png"
       });
     } else {
-      if (x == 3) {
-        wx.showLoading({
-          title: "加载中...",
-          mask: true
-        })
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 1000)
-      }
-
       x--;
       new Promise((resolve, reject) => {
         for (let i = 0; i < 6; i++) {
@@ -76,11 +123,18 @@ Page({
         dices[value].show = true;
         dices[value].mode = !dices[value].mode;
         recentValue = value;
+        //选中
+        sale1[value].myclass="selected";
+        sale2[value*2+1].myclass="selected";
+        sale2[value].myclass="selected";
+        //---
         this.setData({
           dices,
           showTip: false,
           x,
-          value: value + 1
+          value: value + 1,
+          sale1,
+          sale2
         })
       })
     }
