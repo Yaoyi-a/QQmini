@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/test/remark.js",
     "pages/views/restaurant",
+    "pages/views/remark",
     "pages/index/index",
     "pages/test/food",
     "pages/test/cards",
