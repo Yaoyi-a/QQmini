@@ -1,11 +1,14 @@
 <view class="bg">
   <view id="restaurantPanel">
-    <view class="title">妈妈亲饺子馆</view>
-    <view class="locate">北苑食堂一楼</view>
-    <view class="des">全聚德，中华老字号，创建于1864年（清朝同治三年），历经几代创业拼搏获得了长足发展。1999年1月，“全聚德”被国家工商总局认定为“驰名商标”</view>
+    <view class="title">{{title}}</view>
+    <view class="locate">{{locate}}</view>
+    <view class="des">{{des}}</view>
+    <navigator url="../views/remark?orientation={{title}}">
+      <view class="seeReviews">查看评论→</view>
+    </navigator>
   </view>
-  <view>
-    <image mode="widthFix" style="width:100vw" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3618941280,553101522&fm=26&gp=0.jpg"></image>
+  <view id="topPanel">
+    <image mode="widthFix" style="width:100vw" src="{{img}}"></image>
   </view>
   <view class="VerticalBox">
     <!-- 侧边栏 -->
@@ -15,7 +18,7 @@
       </view>
     </scroll-view>
     <!-- 菜单项 -->
-    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 230px)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 220px)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
       <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}">
         <view class='cu-bar solid-bottom bg-white'>
           <view class='action'>

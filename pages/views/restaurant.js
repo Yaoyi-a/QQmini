@@ -2,135 +2,49 @@ const app = getApp()
 Page({
   data: {
     list: [],
-    load: true
+    load: true,
+    title: "",
+    locate: "",
+    des: "",
+    img: ""
   },
   onLoad() {
+    let that = this;
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
-    const list = [{
-      name: '饼类',
-      content: [
-        {
-          name: '手抓饼',
-          img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574006786897&di=7128f3bf57a3a4dbb0d4af0c715ef7c0&imgtype=0&src=http%3A%2F%2Fhao.qudao.com%2Fupload%2Farticle%2F20170725%2F43083402711500975079.jpg",
-          price: '8',
-          round: true,
-          desc: '非常好吃的菜',
-          popular: '  '
-        },
-        
-        {
-          name: '烤冷面',
-          img: "../../images/mian.jpg",
-          price: '10',
-          round: false,
-          desc: 'nice taste',
-          popular: '  '
-        },
+    wx.request({
+      url: "https://buyaobishige.gitee.io/mini/data/mamaqinjiaoziguan.json",
+      success(res) {
+        let list = res.data.list;
+        let {
+          title,
+          locate,
+          des,
+          img
+        } = res.data.restaurantPanel;
+        for (let i = 0; i < list.length; i++) {
+          list[i].id = i;
+        }
 
-      ]
-    }, {
-        name: '饼类',
-        content: [
-          {
-            name: '手抓饼',
-            img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574006786897&di=7128f3bf57a3a4dbb0d4af0c715ef7c0&imgtype=0&src=http%3A%2F%2Fhao.qudao.com%2Fupload%2Farticle%2F20170725%2F43083402711500975079.jpg",
-            price: '8',
-            round: true,
-            desc: '非常好吃的菜',
-            popular: '  '
-          },
-
-          {
-            name: '烤冷面',
-            img: "../../images/mian.jpg",
-            price: '10',
-            round: false,
-            desc: 'nice taste',
-            popular: '  '
-          },
-
-        ]
-      }, {
-        name: '饼类',
-        content: [
-          {
-            name: '手抓饼',
-            img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574006786897&di=7128f3bf57a3a4dbb0d4af0c715ef7c0&imgtype=0&src=http%3A%2F%2Fhao.qudao.com%2Fupload%2Farticle%2F20170725%2F43083402711500975079.jpg",
-            price: '8',
-            round: true,
-            desc: '非常好吃的菜',
-            popular: '  '
-          },
-
-          {
-            name: '烤冷面',
-            img: "../../images/mian.jpg",
-            price: '10',
-            round: false,
-            desc: 'nice taste',
-            popular: '  '
-          },
-
-        ]
-      }, {
-      name: '炒菜',
-      content: [
-        {
-          name: '鱼香肉丝',
-          img: "/images/meat.jpg",
-          price: '18',
-          round: false,
-          desc: '非常好吃的菜',
-          popular: '  '
-        },
-        {
-          name: '辣子鸡',
-          img: "/images/laziji.jpg",
-          price: '50',
-          round: false,
-          desc: '非常难吃的菜',
-          popular: '  '
-        },
-        {
-          name: '烧茄子',
-          img: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1573996481&di=1f7e9043381b4c47b4edb0a276552dda&src=http://uploads.xuexila.com/allimg/1612/703-16122GG306.jpg',
-          price: '18',
-          badge: '推荐',
-          badgeColor: 'red',
-          round: true,
-          desc: '非常好吃的菜',
-          popular: '  '
-        },
-        {
-          name: '香辣肉丝炒饭',
-          img: "/images/cuisine.jpg",
-          price: '18',
-          round: true,
-          desc: '非常好吃的菜',
-          popular: '  '
-        },]
-    },
-    ]
-
-
-    for (let i = 0; i < list.length; i++) {
-      list[i].id = i;
-    }
-
-    this.setData({
-      list: list,
-      listCur: list[0]
+        that.setData({
+          list,
+          listCur: list[0],
+          title,
+          locate,
+          des,
+          img
+        })
+      }
     })
   },
-  serach: function (e) {
+  serach: function(e) {
     wx.redirectTo({
       url: '/pages/detail/detail',
     });
-  }
-  , onReady() {
+  },
+  onReady() {
     wx.hideLoading()
   },
   tabSelect(e) {

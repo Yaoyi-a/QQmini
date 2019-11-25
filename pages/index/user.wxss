@@ -110,6 +110,7 @@
 }
 
 /* 纵向菜单 */
+
 .menu {
   margin: 50rpx;
 }
@@ -123,7 +124,9 @@
 .menu .bigMarginTop {
   margin-top: 60rpx;
 }
+
 /*利用position的特殊布局 */
+
 #rotate {
   position: absolute;
   left: 600rpx;
@@ -133,4 +136,24 @@
 
 .relative {
   position: relative;
+}
+
+/*  */
+
+button::after {
+  opacity: 0;
+}
+
+#GM {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  font-size: initial;
+}
+
+.icon {
+  width: 50rpx;
+  display: inline-block;
+  vertical-align:sub;
 }

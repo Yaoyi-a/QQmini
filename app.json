@@ -1,14 +1,16 @@
 {
   "pages": [
-    "pages/views/restaurant",
-    "pages/views/remark",
     "pages/index/index",
-    "pages/test/food",
-    "pages/test/cards",
-    "pages/test/scrolltext",
+    "pages/views/remark",
+    "pages/index/cards",
     "pages/index/user",
+    "pages/views/restaurant",
+    "pages/views/favor",
+    "pages/test/food",
+    "pages/test/scrolltext",
     "pages/logs/logs",
-    "pages/views/favor"
+    "pages/views/notice",
+    "pages/views/search"
   ],
   "tabBar": {
     "color": "black",
@@ -20,7 +22,7 @@
         "text": "weather"
       },
       {
-        "pagePath": "pages/test/cards",
+        "pagePath": "pages/index/cards",
         "text": "card"
       },
       {

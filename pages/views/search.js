@@ -1,4 +1,4 @@
-// pages/test/remark.js.js
+// pages/views/search.js
 Page({
 
   /**
