@@ -1,40 +1,30 @@
 const app = getApp()
 Page({
   data: {
-    list: [],
+    List: [],
     load: true,
-    title: "",
-    locate: "",
-    des: "",
-    img: ""
+    restaurant: ""
   },
-  onLoad() {
+  onLoad(e) {
+    console.log(e)
+    this.setData({
+      restaurant: e.restaurant
+    })
     let that = this;
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
     wx.request({
-      url: "https://buyaobishige.gitee.io/mini/data/mamaqinjiaoziguan.json",
+      url: "https://lin.innenu.com/query-restaurant.php",
+      data: {
+        restaurant: e.restaurant
+      },
       success(res) {
-        let list = res.data.list;
-        let {
-          title,
-          locate,
-          des,
-          img
-        } = res.data.restaurantPanel;
-        for (let i = 0; i < list.length; i++) {
-          list[i].id = i;
-        }
-
+        console.log(res)
+        let list = res.data;
         that.setData({
-          list,
-          listCur: list[0],
-          title,
-          locate,
-          des,
-          img
+          List:list
         })
       }
     })

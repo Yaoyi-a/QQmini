@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/views/search",
     "pages/views/remark",
     "pages/index/cards",
     "pages/index/user",
@@ -9,8 +10,7 @@
     "pages/test/food",
     "pages/test/scrolltext",
     "pages/logs/logs",
-    "pages/views/notice",
-    "pages/views/search"
+    "pages/views/notice"
   ],
   "tabBar": {
     "color": "black",

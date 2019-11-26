@@ -1,6 +1,6 @@
 <view style="height:100rpx;width:750rpx"></view>
 
-<navigator>
+<navigator url="../views/search">
   <view class="placeholder">
     <view class="box">
       <image src="../../mini/search.png" id="searchImg"></image>
