@@ -1,11 +1,11 @@
 //app.js
 App({
-  globalData:{
-    openid:"",
-    myFavor:[],
-    foodlist:[],
-    parsedTags:[],
-    myFavorInitialLength:0
+  globalData: {
+    openid: "",
+    myFavor: [],
+    foodlist: [],
+    parsedTags: [],
+    myFavorInitialLength: 0
   },
   onLaunch: function() {
     // 登录
@@ -28,26 +28,24 @@ App({
                 openid: resp.data.openid
               },
               success: res => {
-                this.globalData.myFavor=res.data;
-                this.globalData.myFavorInitialLength=res.data.length;
-                console.log(this.globalData.myFavor)
+                this.globalData.myFavor = res.data;
+                this.globalData.myFavorInitialLength = res.data.length;
               }
             })
           }
         })
       }
     })
-wx.request({
-  url:"https://lin.innenu.com/query-food.php",
-  success:res=>{
-    let parsedTags=[];
-    this.globalData.foodlist=res.data;
-    for (let i = 0; i < res.data.length;i++){
-      this.globalData.foodlist[i].tag=JSON.parse(res.data[i].tag)
-    }
-    console.log(this.globalData.foodlist[1])
-  }
-})
+    wx.request({
+      url: "https://lin.innenu.com/query-food.php",
+      success: res => {
+        let parsedTags = [];
+        this.globalData.foodlist = res.data;
+        for (let i = 0; i < res.data.length; i++) {
+          this.globalData.foodlist[i].tag = JSON.parse(res.data[i].tag)
+        }
+      }
+    })
 
 
 

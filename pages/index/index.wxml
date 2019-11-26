@@ -50,6 +50,23 @@
   </view>
 </view>
 <view class="random">
+
+  <view id="model" wx:if="{{showModel}}" bindtap="showModelOff">
+    <view class="item" wx:for="{{sale1}}" wx:key="index" wx:if="{{item.myclass}}">
+      <image class="modelImg" mode="widthFix" src="{{item.src}}"></image>
+      <view>{{item.food}}</view>
+      <view>{{item.restaurant}}</view>
+      <view>￥{{item.price}}</view>
+    </view>
+    <view class="item" wx:for="{{sale2}}" wx:key="index" wx:if="{{item.myclass}}">
+      <image class="modelImg" mode="widthFix" src="{{item.src}}"></image>
+      <view>{{item.food}}</view>
+      <view>{{item.restaurant}}</view>
+      <view>￥{{item.price}}</view>
+    </view>
+  </view>
+
+
   <view id="choiceArea">
     <view style="position:relative;left:15rpx;top:60rpx;text-align:center">选择困难症看这！</view>
     <view bindtap="startDice" id="dice">
@@ -68,15 +85,11 @@
     </view>
   </view>
   <view class="right">
-    <view class="basicSet">
-      <view class="basic foodlist">
-        <view class="item {{item.myclass}}" wx:for="{{sale1}}" wx:key="index">{{item.name}}</view>
-      </view>
+    <view class="foodlist basicSet">
+      <view class="item {{item.myclass}}" wx:for="{{sale1}}" wx:key="index">{{item.food}}</view>
     </view>
-    <view class="tastySet">
-      <view class="basic foodlist">
-        <view wx:for="{{sale2}}" class="item {{item.myclass}}" wx:key="index">{{item.name}}</view>
-      </view>
+    <view class="foodlist tastySet">
+      <view wx:for="{{sale2}}" class="item {{item.myclass}}" wx:key="index">{{item.food}}</view>
     </view>
 
   </view>

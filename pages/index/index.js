@@ -1,3 +1,5 @@
+let sale1;
+let sale2;
 let dices = [{
     show: false,
   },
@@ -17,74 +19,38 @@ let dices = [{
     show: false,
   }
 ];
-let sale1 = [{
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}]
-let sale2 = [{
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, {
-  name: "name",
-  myclass: ""
-}, ]
+
 let recentValue = null;
 let value = null;
 let x = 3;
 Page({
   data: {
-    sale1,
-    sale2,
+    showModel: false,
+    sale1: [],
+    sale2: [],
     x,
     dices,
     showTip: true,
     value: 0,
     url: "../../mini/dice0.png"
+  },
+  onLoad() {
+    wx.request({
+      url: 'https://lin.innenu.com/query-recommended.php',
+      success: (res) => {
+        sale1 = res.data[0];
+        sale2 = res.data[1];
+        this.setData({
+          sale1,
+          sale2
+        })
+      }
+    })
+  },
+  showModelOff() {
+    this.setData({
+      showModel: false
+    })
   },
   randomValue() {
     let rand = Math.floor(1 + Math.random() * (5));
@@ -95,7 +61,14 @@ Page({
   },
   onShareAppMessage: function() {},
   startDice() {
-    for (let i = 0; i < 12; i++) {
+    setTimeout(() => {
+      this.setData({
+        showModel: true
+      })
+    }, 1600)
+
+
+    for (let i = 0; i < 6; i++) {
       sale2[i].myclass = ""
     }
     for (let i = 0; i < 6; i++) {
@@ -126,7 +99,6 @@ Page({
         recentValue = value;
         //选中
         sale1[value].myclass = "selected";
-        sale2[value * 2 + 1].myclass = "selected";
         sale2[value].myclass = "selected";
         //---
         this.setData({
