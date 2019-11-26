@@ -8,7 +8,7 @@
     </navigator>
   </view>
   <view id="topPanel">
-    <image mode="widthFix" style="width:100vw" src="{{List[0].src}}"></image>
+    <image mode="widthFix" style="margin-bottom:10rpx;width:100vw" src="{{List[0].content[0].img}}"></image>
   </view>
   <view class="VerticalBox">
     <!-- 侧边栏 -->

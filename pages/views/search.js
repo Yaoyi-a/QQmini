@@ -8,6 +8,24 @@ Page({
     this.setData({
       inputValue: e.detail.value
     })
+    let foodlistCurrently = [];
+    if (e.detail.value != "") {
+      for (let i = 0; i < this.data.foodlist.length; i++) {
+        if (this.data.foodlist[i].food.includes(this.data.inputValue)) {
+          console.log(this.data.foodlist[i])
+          foodlistCurrently.push(this.data.foodlist[i])
+        }
+      }
+      this.setData({
+        foodlist: foodlistCurrently
+      })
+    } else {
+      this.setData({
+        inputValue: e.detail.value,
+        foodlist: getApp().globalData.foodlist
+      })
+    }
+
   },
   isShow() {
     this.setData({
@@ -29,14 +47,5 @@ Page({
     this.setData({
       foodlist
     })
-  },
-  onShow() {
-    console.log("这里是index页的onShow")
-  },
-  onHide() {
-    console.log("这里是index页的onHide")
-  },
-  onReady() {
-    console.log("这里是index页的onReady")
   }
 })

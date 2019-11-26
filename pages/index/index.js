@@ -1,4 +1,4 @@
-let dices= [{
+let dices = [{
     show: false,
   },
   {
@@ -93,12 +93,13 @@ Page({
     };
     value = rand
   },
+  onShareAppMessage: function() {},
   startDice() {
     for (let i = 0; i < 12; i++) {
-      sale2[i].myclass=""
+      sale2[i].myclass = ""
     }
     for (let i = 0; i < 6; i++) {
-      sale1[i].myclass=""
+      sale1[i].myclass = ""
     }
     if (x < 1) {
       for (let i = 0; i < 6; i++) {
@@ -124,9 +125,9 @@ Page({
         dices[value].mode = !dices[value].mode;
         recentValue = value;
         //选中
-        sale1[value].myclass="selected";
-        sale2[value*2+1].myclass="selected";
-        sale2[value].myclass="selected";
+        sale1[value].myclass = "selected";
+        sale2[value * 2 + 1].myclass = "selected";
+        sale2[value].myclass = "selected";
         //---
         this.setData({
           dices,

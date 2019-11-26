@@ -1,7 +1,7 @@
-::-webkit-scrollbar{
-    width: 0;
-    height: 0;
-    color: transparent;
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .selected {
@@ -140,11 +140,17 @@
   color: rgb(251, 86, 85);
   background-color: rgb(253, 219, 219);
 }
-
+.no-wrap{
+  white-space: nowrap
+}
 .flex {
   white-space: nowrap;
+  display: flex;
+  justify-content: space-around
 }
-
+.flex .food{
+  margin:35rpx 0
+}
 .icon {
   width: 35px;
   height: 35px;
@@ -160,9 +166,6 @@
   border-radius: 10px;
 }
 
-.food {
-  margin: 20px;
-}
 
 .random {
   margin-top: 20px;
@@ -213,11 +216,14 @@
   width: 120px;
   text-align: center;
   border: rgb(198, 214, 233) 1px solid;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .tag2 {
   margin-left: 30rpx;
+}
+.tag1 {
+  padding-bottom: 30rpx;
 }
 
 .atag {
