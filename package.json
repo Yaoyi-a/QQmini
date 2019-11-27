@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "tsc": "node ./node_modules/typescript/lib/tsc.js",
-    "lint": "npm run lint:check --fix",
-    "lint:check": "eslint --ext .ts app/",
+    "lint": "yarn run lint:check --fix",
+    "lint:check": "eslint app/",
     "doc": "typedoc --options ./typedoc.json"
   },
   "repository": {
