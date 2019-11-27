@@ -1,0 +1,184 @@
+root: true
+
+env:
+  node: true
+  es6: true
+
+globals:
+  wx: readonly
+  getApp: readonly
+  App: readonly
+  Page: readonly
+  Component: readonly
+
+parser: "@typescript-eslint/parser"
+
+parserOptions:
+  ecmaVersion: 6
+  project: "./tsconfig.json"
+  sourceType: module
+  ecmaFeatures:
+    modules: true
+
+extends:
+  - eslint:all
+  - plugin:prettier/recommended
+  - prettier
+  - prettier/@typescript-eslint
+
+plugins:
+  - prettier
+  - "@typescript-eslint"
+
+rules:
+  prettier/prettier: error
+
+  arrow-parens:
+    - error
+    - as-needed
+
+  comma-dangle:
+    - error
+    - never
+
+  complexity:
+    - warn
+    - max: 25
+
+  capitalized-comments:
+    - off
+
+  curly:
+    - error
+    - multi
+
+  global-require:
+    - off
+
+  id-length:
+    - error
+    - min: 2
+      exceptions:
+        - i
+        - j
+        - x
+        - y
+        - T
+
+  implicit-arrow-linebreak:
+    - off
+
+  indent:
+    - off
+    - 2
+    - flatTernaryExpressions: true
+      SwitchCase: 1
+      ignoredNodes:
+        - ConditionalExpression
+
+  init-declarations:
+    - off
+
+  function-call-argument-newline:
+    - error
+    - consistent
+
+  line-comment-position:
+    - off
+
+  max-lines:
+    - warn
+    - 500
+
+  max-lines-per-function:
+    - warn
+    - 80
+
+  max-statements:
+    - warn
+    - 25
+
+  new-cap:
+    - off
+
+  nonblock-statement-body-position:
+    - error
+    - any
+
+  no-console:
+    - off
+
+  no-debugger: 
+    - off
+
+  no-inline-comments:
+    - off
+
+  no-magic-numbers:
+    - off
+
+  no-multi-assign:
+    - off
+
+  no-nested-ternary:
+    - off
+
+  no-param-reassign:
+    - error
+    - props: false
+
+  no-plusplus:
+    - error
+    - allowForLoopAfterthoughts: true
+
+  no-sync:
+    - off
+
+  no-ternary:
+    - off
+
+  no-undefined:
+    - off
+
+  no-warning-comments:
+    - warn
+
+  object-curly-spacing:
+    - off
+
+  one-var:
+    - error
+    - never
+
+  padded-blocks:
+    - error
+    - never
+
+  prefer-destructuring:
+    - error
+    - object: true
+      array: false
+
+  prefer-named-capture-group:
+    - off
+
+  quotes:
+    - error
+    - single
+
+  radix:
+    - error
+    - as-needed
+
+  sort-keys:
+    - off
+
+  strict:
+    - off
+
+  # tyepscript规则
+  "@typescript-eslint/explicit-function-return-type": off
+  "@typescript-eslint/interface-name-prefix": off
+  "@typescript-eslint/no-empty-interface": off
+  "@typescript-eslint/no-explicit-any": off
+  "@typescript-eslint/no-triple-slash-reference": off

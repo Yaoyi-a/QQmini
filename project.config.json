@@ -3,6 +3,13 @@
 	"packOptions": {
 		"ignore": []
 	},
+	"miniprogramRoot": "app/",
+	"compileType": "miniprogram",
+	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"libVersion": "2.9.3",
+	"appid": "wx20eaced770a14a30",
+	"qqLibVersion": "1.8.5",
+	"qqappid": "1109990388",
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
@@ -20,17 +27,12 @@
 			"outputPath": ""
 		}
 	},
-	"compileType": "miniprogram",
-	"libVersion": "2.9.1",
-	"appid": "wx20eaced770a14a30",
-	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
-	"qqappid": "1109990388",
 	"condition": {
 		"search": {
 			"current": -1,
