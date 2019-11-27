@@ -1,16 +1,16 @@
 Page({
   data: {
-    character: "",
+    character: '',
     foodlist: []
   },
 
-  onLoad(e) {
+  onLoad(event) {
+    const { foodlist } = getApp().globalData;
 
-    let foodlist = getApp().globalData.foodlist;
-    console.log(foodlist)
+    console.log(foodlist);
     this.setData({
-      character: e.character,
+      character: event.character,
       foodlist
-    })
+    });
   }
-})
+});

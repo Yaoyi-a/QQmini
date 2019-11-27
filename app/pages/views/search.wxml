@@ -1,7 +1,6 @@
-<view style="height:100rpx;width:750rpx">
-</view>
+<view style="height:100rpx;width:750rpx"></view>
 <view wx:if="{{is_show}}" class="placeholder">
-  <input bindinput="bindInput" bindblur="bindBlur" type='text' focus="{true}" class="inputbox"> </input>
+  <input bindinput="bindInput" bindblur="bindBlur" type='text' focus="{true}" class="inputbox"></input>
 </view>
 <view bindtap="isShow" wx:else class="placeholder">
   <view class="box">
@@ -9,7 +8,6 @@
     <text>今儿个吃啥？</text>
   </view>
 </view>
-
 <view class="list" wx:for="{{foodlist}}" wx:for-item="meal" wx:key="index" style="background:{{(meal.restaurant=='基本餐')?'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)':'linear-gradient(60deg, #abecd6 0%, #fbed96 100%);'}}">
   <view class="imgCtn">
     <image src="{{meal.src}}" />
@@ -27,9 +25,11 @@
     </view>
     <view class="iconbar time">
       <image class="timeIcon" src="/pages/images/time.svg"></image>
-      {{meal.description}}</view>
+      {{meal.description}}
+    </view>
     <view class="price">
-      <text class="money">￥</text>{{meal.price}}
+      <text class="money">￥</text>
+      {{meal.price}}
     </view>
   </view>
 </view>

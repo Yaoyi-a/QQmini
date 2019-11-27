@@ -1,78 +1,72 @@
-const app = getApp()
 Page({
   data: {
     List: [],
     load: true,
-    restaurant: ""
+    restaurant: ''
   },
   onLoad(e) {
-    console.log(e)
-    this.setData({
-      restaurant: e.restaurant
-    })
-    let that = this;
+    console.log(e);
+    this.setData({ restaurant: e.restaurant });
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
     wx.request({
-      url: "https://lin.innenu.com/query-restaurant.php",
+      url: 'https://lin.innenu.com/query-restaurant.php',
       data: {
         restaurant: e.restaurant
       },
-      success(res) {
-        console.log(res)
-        let list = res.data;
-        that.setData({
-          List:list
-        })
+      success: res => {
+        console.log(res);
+        const List = res.data;
+        this.setData({ List });
       }
-    })
-  },
-  serach: function(e) {
-    wx.redirectTo({
-      url: '/pages/detail/detail',
     });
   },
+  serach() {
+    wx.redirectTo({ url: '/pages/detail/detail' });
+  },
   onReady() {
-    wx.hideLoading()
+    wx.hideLoading();
   },
-  tabSelect(e) {
+  tabSelect(event) {
     this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      MainCur: e.currentTarget.dataset.id,
-      VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
-    })
+      TabCur: event.currentTarget.dataset.id,
+      MainCur: event.currentTarget.dataset.id,
+      VerticalNavTop: (event.currentTarget.dataset.id - 1) * 50
+    });
   },
-  VerticalMain(e) {
-    let that = this;
-    let list = this.data.list;
+  VerticalMain(event) {
+    const { list } = this.data;
     let tabHeight = 0;
+
     if (this.data.load) {
       for (let i = 0; i < list.length; i++) {
-        let view = wx.createSelectorQuery().select("#main-" + list[i].id);
-        view.fields({
-          size: true
-        }, data => {
-          list[i].top = tabHeight;
-          tabHeight = tabHeight + data.height;
-          list[i].bottom = tabHeight;
-        }).exec();
+        const view = wx.createSelectorQuery().select(`#main-${list[i].id}`);
+
+        view
+          .fields({ size: true }, data => {
+            list[i].top = tabHeight;
+            tabHeight += data.height;
+            list[i].bottom = tabHeight;
+          })
+          .exec();
       }
-      that.setData({
+
+      this.setData({
         load: false,
-        list: list
-      })
+        list
+      });
     }
-    let scrollTop = e.detail.scrollTop + 20;
-    for (let i = 0; i < list.length; i++) {
+    const scrollTop = event.detail.scrollTop + 20;
+
+    for (let i = 0; i < list.length; i++)
       if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
-        that.setData({
+        this.setData({
           VerticalNavTop: (list[i].id - 1) * 50,
           TabCur: list[i].id
-        })
-        return false
+        });
+        return false;
       }
-    }
   }
-})
+});

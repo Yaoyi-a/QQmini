@@ -22,7 +22,8 @@
       <view class="padding-top padding-lr" wx:for="{{List}}" wx:key id="main-{{index}}">
         <view class='cu-bar solid-bottom bg-white'>
           <view class='action'>
-            <text class='cuIcon-title text-color' /> {{item.name}}
+            <text class='cuIcon-title text-color' />
+            {{item.name}}
           </view>
         </view>
         <view class="cu-list menu-avatar">
@@ -48,7 +49,4 @@
     </scroll-view>
   </view>
 </view>
-
-<view id="remark">
-
-</view>
+<view id="remark"></view>

@@ -1,51 +1,40 @@
 Page({
   data: {
     is_show: true,
-    inputValue: "",
+    inputValue: '',
     foodlist: []
   },
-  bindInput(e) {
+  bindInput(event) {
     this.setData({
-      inputValue: e.detail.value
-    })
-    let foodlistCurrently = [];
-    if (e.detail.value != "") {
-      for (let i = 0; i < this.data.foodlist.length; i++) {
-        if (this.data.foodlist[i].food.includes(this.data.inputValue)) {
-          console.log(this.data.foodlist[i])
-          foodlistCurrently.push(this.data.foodlist[i])
-        }
-      }
-      this.setData({
-        foodlist: foodlistCurrently
-      })
-    } else {
-      this.setData({
-        inputValue: e.detail.value,
-        foodlist: getApp().globalData.foodlist
-      })
-    }
+      inputValue: event.detail.value
+    });
+    const foodlistCurrently = [];
 
+    if (event.detail.value === '')
+      this.setData({
+        inputValue: event.detail.value,
+        foodlist: getApp().globalData.foodlist
+      });
+    else {
+      for (let i = 0; i < this.data.foodlist.length; i++)
+        if (this.data.foodlist[i].food.includes(this.data.inputValue)) {
+          console.log(this.data.foodlist[i]);
+          foodlistCurrently.push(this.data.foodlist[i]);
+        }
+
+      this.setData({ foodlist: foodlistCurrently });
+    }
   },
   isShow() {
-    this.setData({
-      is_show: true
-    })
+    this.setData({ is_show: true });
   },
   bindBlur() {
-    if (this.data.inputValue == "") {
-      this.setData({
-        is_show: false
-      })
-    }
-
+    if (this.data.inputValue === '') this.setData({ is_show: false });
   },
 
   onLoad() {
-    let foodlist = getApp().globalData.foodlist;
-    console.log(foodlist)
-    this.setData({
-      foodlist
-    })
+    const { foodlist } = getApp().globalData;
+    console.log(foodlist);
+    this.setData({ foodlist });
   }
-})
+});

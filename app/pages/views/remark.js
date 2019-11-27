@@ -1,54 +1,46 @@
 let openid;
 let user;
 let orientation;
+
 Page({
-  onShareAppMessage() {},
   data: {
-    inputValue: "",
+    inputValue: '',
     remarks: [],
-    orientation: ""
+    orientation: ''
   },
   refreshInfo() {
-    let that = this;
     wx.request({
       url: 'https://lin.innenu.com/query-remark.php',
-      data: {
-        orientation
-      },
-      success(res) {
-        console.log(res.data)
-        that.setData({
+      data: { orientation },
+      success: res => {
+        console.log(res.data);
+        this.setData({
           remarks: res.data
-        })
+        });
       }
-    })
+    });
   },
   onLoad(e) {
     setTimeout(() => {
-      openid = getApp().globalData.openid;
-    }, 500)
-    orientation = e.orientation;
-    this.setData({
-      orientation
-    })
+      ({ openid } = getApp().globalData);
+    }, 500);
+
+    ({ orientation } = e);
+    this.setData({ orientation });
     this.refreshInfo();
   },
-  valueChange(e) {
-    this.setData({
-      inputValue: e.detail.value
-    })
+  valueChange(event) {
+    this.setData({ inputValue: event.detail.value });
   },
 
-  login(e) {
-    user = e.detail.userInfo.nickName;
-    this.setData({
-      is_login: true
-    })
+  login(event) {
+    user = event.detail.userInfo.nickName;
+    this.setData({ is_login: true });
   },
 
   faBu() {
     wx.request({
-      url: "https://lin.innenu.com/addRemark.php",
+      url: 'https://lin.innenu.com/addRemark.php',
       data: {
         orientation,
         content: this.data.inputValue,
@@ -59,6 +51,6 @@ Page({
         console.log(res.data);
         this.refreshInfo();
       }
-    })
+    });
   }
-})
+});
