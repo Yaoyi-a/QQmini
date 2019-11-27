@@ -46,12 +46,14 @@
 <view class="menu">
   <view class="relative">
 
+<navigator url="../views/notice">
     <view class="item">
       <view id="rotate">^</view>
       <view>
         <image class="icon" mode="widthFix" src="/pages/images/notices.svg"></image> 通知消息
       </view>
     </view>
+</navigator>
 
     <view class="item" bindtap="removeBadge">
         <view id="rotate">^</view>

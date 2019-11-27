@@ -1,2 +1,2 @@
-<!--pages/views/notice.wxml-->
-<text>pages/views/notice.wxml</text>
+<view style="width:100vh;height:200rpx"></view>
+<view style="padding:30rpx;text-align:justify">{{date}}|{{content}}</view>

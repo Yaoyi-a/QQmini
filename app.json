@@ -1,16 +1,17 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/views/favor",
     "pages/views/search",
     "pages/views/remark",
     "pages/index/cards",
     "pages/index/user",
     "pages/views/restaurant",
-    "pages/views/favor",
     "pages/test/food",
     "pages/test/scrolltext",
     "pages/logs/logs",
-    "pages/views/notice"
+    "pages/views/notice",
+    "pages/views/detail"
   ],
   "tabBar": {
     "color": "black",
@@ -18,14 +19,20 @@
     "backgroundColor": "white",
     "list": [
       {
+        "selectedIconPath": "pages/images/selected.png",
+        "iconPath": "pages/images/index0.png",
         "pagePath": "pages/index/index",
         "text": "weather"
       },
       {
+        "selectedIconPath": "pages/images/selected.png",
+        "iconPath": "pages/images/index1.png",
         "pagePath": "pages/index/cards",
         "text": "card"
       },
       {
+        "selectedIconPath": "pages/images/selected.png",
+        "iconPath": "pages/images/index2.png",
         "pagePath": "pages/index/user",
         "text": "user"
       }
