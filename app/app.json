@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/views/favor",
+    "pages/views/search",
+    "pages/views/remark",
+    "pages/index/cards",
+    "pages/index/user",
+    "pages/views/restaurant",
+    "pages/test/food",
+    "pages/test/scrolltext",
+    "pages/views/notice",
+    "pages/views/detail"
+  ],
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#C75A4D",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "selectedIconPath": "pages/images/selected.png",
+        "iconPath": "pages/images/index0.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pages/images/selected.png",
+        "iconPath": "pages/images/index1.png",
+        "pagePath": "pages/index/cards",
+        "text": "推荐"
+      },
+      {
+        "selectedIconPath": "pages/images/selected.png",
+        "iconPath": "pages/images/index2.png",
+        "pagePath": "pages/index/user",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
