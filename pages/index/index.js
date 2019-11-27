@@ -1,23 +1,23 @@
 let sale1;
 let sale2;
 let dices = [{
-    show: false,
-  },
-  {
-    show: false,
-  },
-  {
-    show: false,
-  },
-  {
-    show: false,
-  },
-  {
-    show: false,
-  },
-  {
-    show: false,
-  }
+  show: false,
+},
+{
+  show: false,
+},
+{
+  show: false,
+},
+{
+  show: false,
+},
+{
+  show: false,
+},
+{
+  show: false,
+}
 ];
 
 let recentValue = null;
@@ -59,13 +59,15 @@ Page({
     };
     value = rand
   },
-  onShareAppMessage: function() {},
+  onShareAppMessage: function () { },
   startDice() {
-    setTimeout(() => {
-      this.setData({
-        showModel: true
-      })
-    }, 1600)
+    if (x > 0) {
+      setTimeout(() => {
+        this.setData({
+          showModel: true
+        })
+      }, 1600)
+    }
 
 
     for (let i = 0; i < 6; i++) {

@@ -28,7 +28,7 @@
         <view class="cu-list menu-avatar">
           <view class="cu-item" wx:for="{{item.content}}" wx:for-item="List">
             <!-- <view class="cu-avatar {{List.round?'round':''}} lg" style="background-image:url({{List.img}});" /> -->
-            <image class="cu-avatar {{List.round?'round':''}} lg" src="{{List.img}}" />
+            <image class="cu-avatar {{List.round?'round':''}} lg" src="{{List.src}}" />
             <view class="content">
               <view wx:if="{{List.badge}}" class=" ">
                 <text class="text-cut">{{List.food}}</text>

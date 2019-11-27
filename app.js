@@ -9,10 +9,10 @@ App({
   },
   onLaunch: function() {
     // 登录
-    wx.login({
+    qq.login({
       success: res => {
-        wx.request({
-          url: "https://lin.innenu.com/getOpenId.php",
+        qq.request({
+          url: "https://lin.innenu.com/getOpenIdQQ.php",
           data: {
             code: res.code
           },

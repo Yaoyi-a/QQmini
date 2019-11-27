@@ -58,12 +58,12 @@
     <view class="item" bindtap="removeBadge">
         <view id="rotate">^</view>
         <view>
-          <image class="icon" mode="widthFix" src="/pages/images/myfavor.svg"></image> 美食收藏
+          <image class="icon" mode="widthFix" src="/pages/images/myfavor.svg"></image> 卡片收藏
         </view>
     </view>
     <view class="item bigMarginTop">
-      <button id="GM" open-type="contact" bindcontact="handleContact">
-        <image class="icon" mode="widthFix" src="/pages/images/GM.svg"></image> 联系开发者</button>
+      <button id="GM" bindtap="handleContact">
+        <image class="icon" mode="widthFix" src="/pages/images/GM.svg"></image> 复制客服QQ号</button>
     </view>
   </view>
 </view>
