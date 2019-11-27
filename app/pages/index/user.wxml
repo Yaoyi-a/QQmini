@@ -6,9 +6,8 @@
       <view id="name">{{nickName}},</view>
       <view id="desc">{{tips}}</view>
     </view>
-
     <view wx:else id="name">
-      <button class='fabu-input' open-type="getUserInfo" bindgetuserinfo="login"> 点我登录</button>
+      <button class='fabu-input' open-type="getUserInfo" bindgetuserinfo="login">点我登录</button>
     </view>
   </view>
 </view>
@@ -16,9 +15,9 @@
 <!-- 顶部楔形 over -->
 <!-- 波浪效果 -->
 <view class="waves">
-  <view class="wave w1"> </view>
-  <view class="wave w2"> </view>
-  <view class="wave w3"> </view>
+  <view class="wave w1"></view>
+  <view class="wave w2"></view>
+  <view class="wave w3"></view>
 </view>
 <!-- 波浪效果 over -->
 <view id="avator">
@@ -41,29 +40,30 @@
     <view>菜单内容</view>
   </view> -->
 </view>
-<!-- 横排菜单(flex布局) over-->
-
+<!-- 横排菜单(flex布局) over -->
 <view class="menu">
   <view class="relative">
-
-<navigator url="../views/notice">
-    <view class="item">
-      <view id="rotate">^</view>
-      <view>
-        <image class="icon" mode="widthFix" src="/pages/images/notices.svg"></image> 通知消息
-      </view>
-    </view>
-</navigator>
-
-    <view class="item" bindtap="removeBadge">
+    <navigator url="../views/notice">
+      <view class="item">
         <view id="rotate">^</view>
         <view>
-          <image class="icon" mode="widthFix" src="/pages/images/myfavor.svg"></image> 卡片收藏
+          <image class="icon" mode="widthFix" src="/pages/images/notices.svg"></image>
+          通知消息
         </view>
+      </view>
+    </navigator>
+    <view class="item" bindtap="removeBadge">
+      <view id="rotate">^</view>
+      <view>
+        <image class="icon" mode="widthFix" src="/pages/images/myfavor.svg"></image>
+        卡片收藏
+      </view>
     </view>
     <view class="item bigMarginTop">
       <button id="GM" bindtap="handleContact">
-        <image class="icon" mode="widthFix" src="/pages/images/GM.svg"></image> 复制客服QQ号</button>
+        <image class="icon" mode="widthFix" src="/pages/images/GM.svg"></image>
+        复制客服QQ号
+      </button>
     </view>
   </view>
 </view>

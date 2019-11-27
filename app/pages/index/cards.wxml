@@ -19,12 +19,9 @@
           <text>{{item.description}}</text>
         </view>
       </view>
-
-
     </view>
   </view>
 </view>
-
 <view class="btn-group">
   <image mode="widthFix" bindtap="addToFavor" class="btn" src="../images/true.svg"></image>
   <image mode="widthFix" class="btn" bindtap="removeCard" src="../images/false.svg"></image>

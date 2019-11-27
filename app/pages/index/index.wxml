@@ -1,5 +1,4 @@
 <view style="height:100rpx;width:750rpx"></view>
-
 <navigator url="../views/search">
   <view class="placeholder">
     <view class="box">
@@ -64,7 +63,6 @@
       <view>￥{{item.price}}</view>
     </view>
   </view>
-
   <view id="choiceArea">
     <view style="position:relative;left:15rpx;top:60rpx;text-align:center">选择困难症看这！</view>
     <view bindtap="startDice" id="dice">
@@ -76,7 +74,6 @@
       <view class="dice " wx:for="{{dices}}" wx:key="index" hidden="{{!item.show}}">
         <image src="../../mini/dice{{index+1}}.gif"></image>
       </view>
-
       <view id="points" wx:if="{{x>-1}}">你摇到了{{value}}点</view>
       <view id="points" wx:if="{{x<=-1}}">下次再来吧！</view>
     </view>
@@ -98,16 +95,28 @@
       <!-- <navigator url="../views/detail?character=苦" class="atag" hover-class="hover2">苦</navigator> -->
       <navigator url="../views/detail?character=辣" class="atag" hover-class="hover2">辣</navigator>
       <navigator url="../views/detail?character=咸" class="atag" hover-class="hover2">咸</navigator>
-      <navigator url="../views/detail?character=少油少盐" class="atag" hover-class="hover2">少油少盐</navigator>
+      <navigator url="../views/detail?character=少油少盐" class="atag" hover-class="hover2">
+        少油少盐
+      </navigator>
     </view>
   </scroll-view>
   <scroll-view scroll-x="{{true}}">
     <view class="tag3">
-      <navigator url="../views/detail?character=东北风味" class="btag" hover-class="hover3">东北风味</navigator>
-      <navigator url="../views/detail?character=四川风味" class="btag" hover-class="hover3">四川风味</navigator>
-      <navigator url="../views/detail?character=北方风味" class="btag" hover-class="hover3">北方风味</navigator>
-      <navigator url="../views/detail?character=南方风味" class="btag" hover-class="hover3">南方风味</navigator>
-      <navigator url="../views/detail?character=特色菜" class="btag" hover-class="hover3">特色菜</navigator>
+      <navigator url="../views/detail?character=东北风味" class="btag" hover-class="hover3">
+        东北风味
+      </navigator>
+      <navigator url="../views/detail?character=四川风味" class="btag" hover-class="hover3">
+        四川风味
+      </navigator>
+      <navigator url="../views/detail?character=北方风味" class="btag" hover-class="hover3">
+        北方风味
+      </navigator>
+      <navigator url="../views/detail?character=南方风味" class="btag" hover-class="hover3">
+        南方风味
+      </navigator>
+      <navigator url="../views/detail?character=特色菜" class="btag" hover-class="hover3">
+        特色菜
+      </navigator>
     </view>
   </scroll-view>
 </view>

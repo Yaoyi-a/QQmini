@@ -155,5 +155,5 @@ button::after {
 .icon {
   width: 50rpx;
   display: inline-block;
-  vertical-align:sub;
+  vertical-align: sub;
 }

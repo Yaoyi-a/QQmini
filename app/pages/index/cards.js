@@ -2,40 +2,36 @@
 let openid;
 let myFavor;
 let myFavorInitialLength;
-let badge=1;
+let badge = 1;
 let cardSet;
 let extensionCards;
 Page({
   data: {
-    cardSet,
+    cardSet
   },
-  onLoad: function(options) {
+  onLoad() {
     setTimeout(() => {
-      openid = getApp().globalData.openid;
+      ({ openid } = getApp().globalData);
       setTimeout(() => {
-        myFavor = getApp().globalData.myFavor;
-        myFavorInitialLength = getApp().globalData.myFavorInitialLength;
-      }, 400)
-    }, 400)
+        ({ myFavor, myFavorInitialLength } = getApp().globalData);
+      }, 400);
+    }, 400);
 
-    let that = this;
     wx.request({
       url: 'https://lin.innenu.com/query-card.php',
-      success(res) {
+      success: res => {
         cardSet = [res.data[0], res.data[1], res.data[2]];
         extensionCards = [res.data[3], res.data[4]];
-        that.setData({
-          cardSet
-        })
+        this.setData({ cardSet });
       }
-    })
+    });
 
     wx.showLoading({
       title: 'loading'
-    })
+    });
     setTimeout(() => {
-      wx.hideLoading()
-    }, 1500)
+      wx.hideLoading();
+    }, 1500);
   },
 
   toFavor() {
@@ -43,57 +39,61 @@ Page({
     wx.removeTabBarBadge({
       index: 2,
       success: res => {
-        console.log(res)
+        console.log(res);
       }
     });
     wx.navigateTo({
-      url: "../views/favor"
-    })
+      url: '../views/favor'
+    });
   },
 
   removeCard() {
-    cardSet[0].class = "destroy";
-    this.setData({
-      cardSet
-    }, () => {
-      setTimeout(() => {
-        cardSet[0].class = "";
-        let firstEle = cardSet.shift();
-        let firstExtensionEle = extensionCards.shift();
-        extensionCards.push(firstEle);
-        cardSet.push(firstExtensionEle);
-        this.setData({
-          cardSet
-        })
-      }, 550)
-    })
+    cardSet[0].class = 'destroy';
+    this.setData(
+      {
+        cardSet
+      },
+      () => {
+        setTimeout(() => {
+          cardSet[0].class = '';
+          const firstEle = cardSet.shift();
+          const firstExtensionEle = extensionCards.shift();
+          extensionCards.push(firstEle);
+          cardSet.push(firstExtensionEle);
+          this.setData({
+            cardSet
+          });
+        }, 550);
+      }
+    );
   },
 
   addToFavor() {
-    // wx.request({
-    //   url: 'https://lin.innenu.com/query-remark.php',
-    // })
-    let is_duplicated = false;
-    let that = this;
-    let {
+    /*
+     * wx.request({
+     *   url: 'https://lin.innenu.com/query-remark.php',
+     * })
+     */
+    let isDuplicated = false;
+    const {
       obj_id,
-      category = "card",
+      category = 'card',
       name,
       locate,
       restaurant,
       src
     } = cardSet[0];
-    for (let i = 0; i < myFavor.length; i++) {
-      if (category == myFavor[i].category && obj_id == myFavor[i].obj_id) {
-        is_duplicated = true;
+    for (let i = 0; i < myFavor.length; i++)
+      if (category === myFavor[i].category && obj_id === myFavor[i].obj_id) {
+        isDuplicated = true;
         wx.showToast({
-          title: "它已经在收藏夹里啦",
+          title: '它已经在收藏夹里啦',
           duration: 1000
-        })
+        });
         this.removeCard();
       }
-    }
-    if (is_duplicated == false) {
+
+    if (isDuplicated === false) {
       myFavor.push({
         obj_id,
         category,
@@ -101,16 +101,16 @@ Page({
         locate,
         restaurant,
         src
-      })
+      });
 
-      console.log(openid)
+      console.log(openid);
       wx.setTabBarBadge({
         index: 2,
-        text: String(badge),
-      })
-      badge ++;
+        text: String(badge)
+      });
+      badge++;
       wx.request({
-        url: "https://lin.innenu.com/addToFavor.php",
+        url: 'https://lin.innenu.com/addToFavor.php',
         data: {
           openid,
           obj_id,
@@ -123,50 +123,52 @@ Page({
         success(res) {
           console.log(res.data);
         }
-      })
-      cardSet[0].class = "shrink";
-      this.setData({
-        cardSet
-      }, () => {
-        setTimeout(() => {
-          cardSet[0].class = "";
-          let firstEle = cardSet.shift();
-          let firstExtensionEle = extensionCards.shift();
-          extensionCards.push(firstEle);
-          cardSet.push(firstExtensionEle);
-          this.setData({
-            cardSet
-          })
-        }, 550)
-      })
+      });
+      cardSet[0].class = 'shrink';
+      this.setData(
+        {
+          cardSet
+        },
+        () => {
+          setTimeout(() => {
+            cardSet[0].class = '';
+            const firstEle = cardSet.shift();
+            const firstExtensionEle = extensionCards.shift();
+            extensionCards.push(firstEle);
+            cardSet.push(firstExtensionEle);
+            this.setData({
+              cardSet
+            });
+          }, 550);
+        }
+      );
     }
-
   },
-
-
-
 
   addClass() {
     wx.setTabBarBadge({
       index: 2,
       text: String(badge)
-    })
-    badge++;
+    });
+    badge += 1;
 
-    cardSet[0].class = "shrink";
-    this.setData({
-      cardSet
-    }, () => {
-      setTimeout(() => {
-        cardSet[0].class = "";
-        let firstEle = cardSet.shift();
-        let firstExtensionEle = extensionCards.shift();
-        extensionCards.push(firstEle);
-        cardSet.push(firstExtensionEle);
-        this.setData({
-          cardSet
-        })
-      }, 0)
-    })
+    cardSet[0].class = 'shrink';
+    this.setData(
+      {
+        cardSet
+      },
+      () => {
+        setTimeout(() => {
+          cardSet[0].class = '';
+          const firstEle = cardSet.shift();
+          const firstExtensionEle = extensionCards.shift();
+          extensionCards.push(firstEle);
+          cardSet.push(firstExtensionEle);
+          this.setData({
+            cardSet
+          });
+        }, 0);
+      }
+    );
   }
-})
+});

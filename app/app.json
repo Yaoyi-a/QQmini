@@ -9,7 +9,6 @@
     "pages/views/restaurant",
     "pages/test/food",
     "pages/test/scrolltext",
-    "pages/logs/logs",
     "pages/views/notice",
     "pages/views/detail"
   ],
