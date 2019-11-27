@@ -5,6 +5,7 @@ let myFavorInitialLength;
 let badge = 1;
 let cardSet;
 let extensionCards;
+
 Page({
   data: {
     cardSet
@@ -17,55 +18,49 @@ Page({
       }, 400);
     }, 400);
 
+    wx.showLoading({ title: 'loading' });
+
     wx.request({
       url: 'https://lin.innenu.com/query-card.php',
       success: res => {
         cardSet = [res.data[0], res.data[1], res.data[2]];
         extensionCards = [res.data[3], res.data[4]];
         this.setData({ cardSet });
+
+        wx.hideLoading();
       }
     });
-
-    wx.showLoading({
-      title: 'loading'
-    });
-    setTimeout(() => {
-      wx.hideLoading();
-    }, 1500);
   },
 
   toFavor() {
     badge = 1;
+
     wx.removeTabBarBadge({
       index: 2,
       success: res => {
         console.log(res);
       }
     });
-    wx.navigateTo({
-      url: '../views/favor'
-    });
+
+    wx.navigateTo({ url: '/pages/views/favor' });
   },
 
   removeCard() {
+    // FIXME: What are you doing here?
     cardSet[0].class = 'destroy';
-    this.setData(
-      {
-        cardSet
-      },
-      () => {
-        setTimeout(() => {
-          cardSet[0].class = '';
-          const firstEle = cardSet.shift();
-          const firstExtensionEle = extensionCards.shift();
-          extensionCards.push(firstEle);
-          cardSet.push(firstExtensionEle);
-          this.setData({
-            cardSet
-          });
-        }, 550);
-      }
-    );
+
+    this.setData({ cardSet }, () => {
+      setTimeout(() => {
+        cardSet[0].class = '';
+        const firstEle = cardSet.shift();
+        const firstExtensionEle = extensionCards.shift();
+
+        extensionCards.push(firstEle);
+        cardSet.push(firstExtensionEle);
+
+        this.setData({ cardSet });
+      }, 550);
+    });
   },
 
   addToFavor() {
@@ -83,6 +78,7 @@ Page({
       restaurant,
       src
     } = cardSet[0];
+
     for (let i = 0; i < myFavor.length; i++)
       if (category === myFavor[i].category && obj_id === myFavor[i].obj_id) {
         isDuplicated = true;
@@ -108,7 +104,7 @@ Page({
         index: 2,
         text: String(badge)
       });
-      badge++;
+      badge += 1;
       wx.request({
         url: 'https://lin.innenu.com/addToFavor.php',
         data: {
@@ -120,28 +116,26 @@ Page({
           restaurant,
           src
         },
-        success(res) {
+        success: res => {
           console.log(res.data);
         }
       });
       cardSet[0].class = 'shrink';
-      this.setData(
-        {
-          cardSet
-        },
-        () => {
-          setTimeout(() => {
-            cardSet[0].class = '';
-            const firstEle = cardSet.shift();
-            const firstExtensionEle = extensionCards.shift();
-            extensionCards.push(firstEle);
-            cardSet.push(firstExtensionEle);
-            this.setData({
-              cardSet
-            });
-          }, 550);
-        }
-      );
+
+      // FIXME: What are you doing here?
+      this.setData({ cardSet }, () => {
+        setTimeout(() => {
+          cardSet[0].class = '';
+
+          const firstEle = cardSet.shift();
+          const firstExtensionEle = extensionCards.shift();
+
+          extensionCards.push(firstEle);
+          cardSet.push(firstExtensionEle);
+
+          this.setData({ cardSet });
+        }, 550);
+      });
     }
   },
 
@@ -153,22 +147,20 @@ Page({
     badge += 1;
 
     cardSet[0].class = 'shrink';
-    this.setData(
-      {
-        cardSet
-      },
-      () => {
-        setTimeout(() => {
-          cardSet[0].class = '';
-          const firstEle = cardSet.shift();
-          const firstExtensionEle = extensionCards.shift();
-          extensionCards.push(firstEle);
-          cardSet.push(firstExtensionEle);
-          this.setData({
-            cardSet
-          });
-        }, 0);
-      }
-    );
+
+    // FIXME: What are you doing here? Why are you using setTimeout?
+    this.setData({ cardSet }, () => {
+      setTimeout(() => {
+        cardSet[0].class = '';
+
+        const firstEle = cardSet.shift();
+        const firstExtensionEle = extensionCards.shift();
+
+        extensionCards.push(firstEle);
+        cardSet.push(firstExtensionEle);
+
+        this.setData({ cardSet });
+      }, 0);
+    });
   }
 });

@@ -10,10 +10,7 @@ Page({
       success: res => {
         const { date, content } = res.data;
 
-        this.setData({
-          date,
-          content
-        });
+        this.setData({ date, content });
       }
     });
   }

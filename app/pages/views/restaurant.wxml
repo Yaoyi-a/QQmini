@@ -18,7 +18,7 @@
       </view>
     </scroll-view>
     <!-- 菜单项 -->
-    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 220px)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 220px)" scroll-into-view="main-{{MainCur}}" bindscroll="verticalMain">
       <view class="padding-top padding-lr" wx:for="{{List}}" wx:key id="main-{{index}}">
         <view class='cu-bar solid-bottom bg-white'>
           <view class='action'>

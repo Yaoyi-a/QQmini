@@ -4,18 +4,19 @@ Page({
     load: true,
     restaurant: ''
   },
-  onLoad(e) {
-    console.log(e);
-    this.setData({ restaurant: e.restaurant });
+
+  onLoad(event) {
+    console.log(event);
+    this.setData({ restaurant: event.restaurant });
+
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
+
     wx.request({
       url: 'https://lin.innenu.com/query-restaurant.php',
-      data: {
-        restaurant: e.restaurant
-      },
+      data: { restaurant: event.restaurant },
       success: res => {
         console.log(res);
         const List = res.data;
@@ -23,20 +24,25 @@ Page({
       }
     });
   },
-  serach() {
-    wx.redirectTo({ url: '/pages/detail/detail' });
-  },
+
   onReady() {
     wx.hideLoading();
   },
+
+  serach() {
+    wx.redirectTo({ url: '/pages/detail/detail' });
+  },
+
   tabSelect(event) {
+    const { id } = event.currentTarget.dataset;
+
     this.setData({
-      TabCur: event.currentTarget.dataset.id,
-      MainCur: event.currentTarget.dataset.id,
-      VerticalNavTop: (event.currentTarget.dataset.id - 1) * 50
+      TabCur: id,
+      MainCur: id,
+      VerticalNavTop: (id - 1) * 50
     });
   },
-  VerticalMain(event) {
+  verticalMain(event) {
     const { list } = this.data;
     let tabHeight = 0;
 
@@ -53,11 +59,9 @@ Page({
           .exec();
       }
 
-      this.setData({
-        load: false,
-        list
-      });
+      this.setData({ load: false, list });
     }
+
     const scrollTop = event.detail.scrollTop + 20;
 
     for (let i = 0; i < list.length; i++)
@@ -66,6 +70,7 @@ Page({
           VerticalNavTop: (list[i].id - 1) * 50,
           TabCur: list[i].id
         });
+        // FIXME: why false
         return false;
       }
   }

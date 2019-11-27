@@ -2,7 +2,7 @@
 <view id="top">
   <!-- <view id="setting">口 设置</view> -->
   <view class="textBox">
-    <view wx:if="{{is_login}}">
+    <view wx:if="{{isLogin}}">
       <view id="name">{{nickName}},</view>
       <view id="desc">{{tips}}</view>
     </view>

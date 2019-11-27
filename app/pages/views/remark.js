@@ -14,9 +14,7 @@ Page({
       data: { orientation },
       success: res => {
         console.log(res.data);
-        this.setData({
-          remarks: res.data
-        });
+        this.setData({ remarks: res.data });
       }
     });
   },

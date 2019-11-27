@@ -1,29 +1,18 @@
 let sale1;
 let sale2;
 const dices = [
-  {
-    show: false
-  },
-  {
-    show: false
-  },
-  {
-    show: false
-  },
-  {
-    show: false
-  },
-  {
-    show: false
-  },
-  {
-    show: false
-  }
+  { show: false },
+  { show: false },
+  { show: false },
+  { show: false },
+  { show: false },
+  { show: false }
 ];
 
 let recentValue = null;
 let value = null;
 let x = 3;
+
 Page({
   data: {
     showModel: false,
@@ -35,23 +24,18 @@ Page({
     value: 0,
     url: '../../mini/dice0.png'
   },
+
   onLoad() {
     wx.request({
       url: 'https://lin.innenu.com/query-recommended.php',
       success: res => {
-        sale1 = res.data[0];
-        sale2 = res.data[1];
-        this.setData({
-          sale1,
-          sale2
-        });
+        [sale1, sale2] = res.data;
+        this.setData({ sale1, sale2 });
       }
     });
   },
   showModelOff() {
-    this.setData({
-      showModel: false
-    });
+    this.setData({ showModel: false });
   },
   randomValue() {
     let rand = Math.floor(1 + Math.random() * 5);
@@ -62,9 +46,7 @@ Page({
   startDice() {
     if (x > 0)
       setTimeout(() => {
-        this.setData({
-          showModel: true
-        });
+        this.setData({ showModel: true });
       }, 1600);
 
     for (let i = 0; i < 6; i++) sale2[i].myclass = '';
@@ -84,6 +66,7 @@ Page({
       });
     } else {
       x -= 1;
+      // FIXME: Why are you using promise? Besides promise are not safe in miniprogram
       new Promise(resolve => {
         for (let i = 0; i < 6; i++) dices[i].show = false;
 

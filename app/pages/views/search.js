@@ -1,20 +1,22 @@
 Page({
   data: {
-    is_show: true,
+    isShowed: true,
     inputValue: '',
     foodlist: []
   },
+
+  onLoad() {
+    const { foodlist } = getApp().globalData;
+    console.log(foodlist);
+    this.setData({ foodlist });
+  },
+
   bindInput(event) {
-    this.setData({
-      inputValue: event.detail.value
-    });
+    this.setData({ inputValue: event.detail.value });
     const foodlistCurrently = [];
 
     if (event.detail.value === '')
-      this.setData({
-        inputValue: event.detail.value,
-        foodlist: getApp().globalData.foodlist
-      });
+      this.setData({ foodlist: getApp().globalData.foodlist });
     else {
       for (let i = 0; i < this.data.foodlist.length; i++)
         if (this.data.foodlist[i].food.includes(this.data.inputValue)) {
@@ -25,16 +27,12 @@ Page({
       this.setData({ foodlist: foodlistCurrently });
     }
   },
+
   isShow() {
-    this.setData({ is_show: true });
-  },
-  bindBlur() {
-    if (this.data.inputValue === '') this.setData({ is_show: false });
+    this.setData({ isShowed: true });
   },
 
-  onLoad() {
-    const { foodlist } = getApp().globalData;
-    console.log(foodlist);
-    this.setData({ foodlist });
+  bindBlur() {
+    if (this.data.inputValue === '') this.setData({ isShowed: false });
   }
 });
