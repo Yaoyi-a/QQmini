@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/tabPage/index",
+    "pages/tabPage/cards",
+    "pages/tabPage/user",
     "pages/views/favor",
     "pages/views/search",
     "pages/views/remark",
-    "pages/index/cards",
-    "pages/index/user",
     "pages/views/restaurant",
     "pages/test/food",
     "pages/test/scrolltext",
@@ -18,21 +18,21 @@
     "backgroundColor": "#fff",
     "list": [
       {
-        "selectedIconPath": "pages/images/selected.png",
-        "iconPath": "pages/images/index0.png",
-        "pagePath": "pages/index/index",
+        "selectedIconPath": "icon/indexIconSelected.png",
+        "iconPath": "icon/indexIcon.png",
+        "pagePath": "pages/tabPage/index",
         "text": "首页"
       },
       {
-        "selectedIconPath": "pages/images/selected.png",
-        "iconPath": "pages/images/index1.png",
-        "pagePath": "pages/index/cards",
+        "selectedIconPath": "icon/indexIconSelected.png",
+        "iconPath": "icon/cardIcon.png",
+        "pagePath": "pages/tabPage/cards",
         "text": "推荐"
       },
       {
-        "selectedIconPath": "pages/images/selected.png",
-        "iconPath": "pages/images/index2.png",
-        "pagePath": "pages/index/user",
+        "selectedIconPath": "icon/indexIconSelected.png",
+        "iconPath": "icon/userIcon.png",
+        "pagePath": "pages/tabPage/user",
         "text": "我的"
       }
     ]
