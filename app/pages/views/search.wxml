@@ -4,7 +4,7 @@
 </view>
 <view bindtap="isShow" wx:else class="placeholder">
   <view class="box">
-    <image src="../../mini/search.png" id="searchImg"></image>
+    <image src="/icon/search.png" id="searchImg" />
     <text>今儿个吃啥？</text>
   </view>
 </view>
@@ -24,7 +24,7 @@
       <view class="tag" wx:for="{{meal.tag}}" wx:key="index">{{item}}</view>
     </view>
     <view class="iconbar time">
-      <image class="timeIcon" src="/pages/images/time.svg"></image>
+      <image class="timeIcon" src="/icon/time.svg" />
       {{meal.description}}
     </view>
     <view class="price">

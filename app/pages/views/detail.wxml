@@ -1,6 +1,6 @@
 <view style="height:200rpx;width:750rpx" />
 <!-- wx:if="{{meal.tag.includes(character)}}" -->
-<view class="list" wx:for="{{foodlist}}" wx:for-item="meal" wx:key="index" wx:if="{{meal.tag[0]==(character)||meal.tag[1]==(character)||meal.tag[2]==(character)}}" style="background:{{(meal.restaurant=='基本餐')?'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)':'linear-gradient(60deg, #abecd6 0%, #fbed96 100%);'}}">
+<view class="list" wx:for="{{foodlist}}" wx:for-item="meal" wx:key="index" wx:if="{{meal.tag[0]==character||meal.tag[1]==(character)||meal.tag[2]==character}}" style="background:{{meal.restaurant=='基本餐'?'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)':'linear-gradient(60deg, #abecd6 0%, #fbed96 100%);'}}">
   <view class="imgCtn">
     <image src="{{meal.src}}" />
   </view>

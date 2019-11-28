@@ -1,14 +1,8 @@
-const dices = [
-  { show: false },
-  { show: false },
-  { show: false },
-  { show: false },
-  { show: false },
-  { show: false }
-];
-
+// FIXME: What's it?
 let recentValue = null;
+// FIXME: What's it?
 let value = null;
+// FIXME: What's it?
 let x = 3;
 
 Page({
@@ -61,7 +55,14 @@ Page({
     sale1: [],
     sale2: [],
     x,
-    dices,
+    dices: [
+      { show: false },
+      { show: false },
+      { show: false },
+      { show: false },
+      { show: false },
+      { show: false }
+    ],
     showTip: true,
     value: 0,
     url: '/icon/dice0.png'
@@ -94,7 +95,7 @@ Page({
   },
 
   startDice() {
-    const { sale1, sale2 } = this.data;
+    const { sale1, sale2, dices } = this.data;
 
     if (x > 0)
       setTimeout(() => {
