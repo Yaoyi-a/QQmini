@@ -1,4 +1,3 @@
-// pages/index/search.js
 Page({
   data: {
     isLogin: false,
@@ -24,7 +23,6 @@ Page({
   login(event) {
     const { nickName, avatarUrl } = event.detail.userInfo;
 
-    console.log(event.detail.userInfo.nickName);
     this.setData({ nickName, avatarUrl, isLogin: true });
   }
 });
