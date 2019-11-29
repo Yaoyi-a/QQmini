@@ -9,7 +9,7 @@
 </navigator>
 <view class="flex">
   <view wx:for="{{kind1}}" wx:key="type" class="food" style="background-color:{{item.iconColor}}">
-    <navigator url="/pages/detail?character={{item.type}}" class="food1">
+    <navigator url="/pages/detail?character={{item.character}}" class="food1">
       <image src="/pages/images/{{item.icon}}.png" class="icon"></image>
       <view class="text" style="font-size: 11px;color: rgba(0,0,0);">{{item.type}}</view>
     </navigator>

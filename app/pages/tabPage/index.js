@@ -10,17 +10,20 @@ Page({
     /** 种类1 */
     kind1: [
       {
-        type: '米饭',
+        type: '盖饭/饭菜',
+        character: '饭/菜',
         icon: 'rice',
         iconColor: 'rgb(244,146,85)'
       },
       {
-        type: '面条',
+        type: '面条/米粉',
+        character: '面/粉',
         icon: 'noodle',
         iconColor: 'rgb(248,179,58)'
       },
       {
-        type: '奶茶',
+        type: '饮品',
+        character: '饮品',
         icon: 'tea',
         iconColor: 'rgb(255,160,177)'
       }
