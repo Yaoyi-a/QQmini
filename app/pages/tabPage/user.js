@@ -3,7 +3,31 @@ Page({
     isLogin: false,
     tips: '要照顾好自己呀',
     avatarUrl: 'https://nenuyouth.com/img/icon/nenuyouth.png',
-    nickName: ''
+    nickName: '',
+    list: {
+      content: [
+        {
+          text: '通知消息',
+          icon: '/icon/notice.svg',
+          url: '/pages/views/notice'
+        },
+        {
+          text: '收藏夹',
+          icon: '/icon/myFavor.svg',
+          button: 'removeBadge'
+        },
+        {
+          text: '联系客服',
+          icon: '/icon/GM.svg',
+          button: 'handleContact'
+        }
+      ]
+    }
+  },
+
+  /** 列表控制函数 */
+  list({ detail }) {
+    if (detail.event) this[detail.event](detail.value);
   },
 
   handleContact() {

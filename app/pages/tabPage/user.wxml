@@ -41,7 +41,7 @@
   </view> -->
 </view>
 <!-- 横排菜单(flex布局) over -->
-<view class="menu">
+<!-- <view class="menu">
   <view class="relative">
     <navigator url="/pages/views/notice">
       <view class="item">
@@ -66,4 +66,6 @@
       </button>
     </view>
   </view>
-</view>
+</view> -->
+<ex-list config="{{list}}" bind:change="list" />
+<foot />

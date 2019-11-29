@@ -111,7 +111,7 @@
 
 /* 纵向菜单 */
 
-.menu {
+/* .menu {
   margin: 50rpx;
 }
 
@@ -123,24 +123,24 @@
 
 .menu .bigMarginTop {
   margin-top: 60rpx;
-}
+} */
 
 /* 利用 position 的特殊布局 */
 
-#rotate {
+/* #rotate {
   position: absolute;
   left: 600rpx;
   width: 30rpx;
   transform: rotate(90deg);
-}
-
+} */
+/* 
 .relative {
   position: relative;
-}
+} */
 
 /*  */
 
-button::after {
+/* button::after {
   opacity: 0;
 }
 
@@ -154,6 +154,7 @@ button::after {
 
 .icon {
   width: 50rpx;
+  height: 50rpx;
   display: inline-block;
   vertical-align: sub;
-}
+} */

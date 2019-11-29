@@ -16,9 +16,9 @@ App({
 
     // 登录
     if ((this, this.globalData.env === 'qq'))
-      qq.login({
+      wx.login({
         success: res => {
-          qq.request({
+          wx.request({
             url: 'https://lin.innenu.com/getOpenIdQQ.php',
             data: {
               code: res.code

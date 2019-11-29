@@ -43,5 +43,11 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
+  "usingComponents": {
+    "ex-list": "/components/ex-list/list",
+    "foot": "/components/foot/foot",
+    "list": "/components/list/list"
+  },
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
