@@ -1,2 +1,3 @@
-typings/
-# *.js
+# typings/
+
+lint-staged.config.js
