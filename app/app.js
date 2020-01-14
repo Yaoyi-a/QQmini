@@ -4,8 +4,6 @@ App({
     openid: '',
     myFavor: [],
     foodlist: [],
-    parsedTags: [],
-    myFavorInitialLength: 0,
     info: {},
     env: 'wx'
   },
@@ -26,9 +24,7 @@ App({
             success: resp => {
               this.globalData.openid = resp.data.openid;
 
-              /*
-               * 初始化收藏夹
-               */
+              // 初始化收藏夹
               wx.request({
                 url: 'https://lin.innenu.com/query-favorite.php',
                 data: {
@@ -36,7 +32,6 @@ App({
                 },
                 success: res2 => {
                   this.globalData.myFavor = res2.data;
-                  this.globalData.myFavorInitialLength = res2.data.length;
                 }
               });
             }

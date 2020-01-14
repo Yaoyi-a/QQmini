@@ -21,7 +21,7 @@ Page({
   onLoad() {
     wx.showLoading({ title: 'loading' });
     wx.request({
-      url: 'https://lin.innenu.com/query-card.php',
+      url: 'https://lin.innenu.com/query-card-fixed.php',
       success: res => {
         const cardList = [res.data[0], res.data[1], res.data[2]];
 
@@ -78,7 +78,7 @@ Page({
     const { cardList } = this.data;
     const {
       // FIXME: Make camelcase in php
-      obj_id,
+      objId,
       category = 'card',
       name,
       locate,
@@ -88,7 +88,7 @@ Page({
     const { myFavor } = this.privateData;
 
     for (let i = 0; i < myFavor.length; i++)
-      if (category === myFavor[i].category && obj_id === myFavor[i].obj_id) {
+      if (category === myFavor[i].category && objId === myFavor[i].objId) {
         isDuplicated = true;
         wx.showToast({
           title: '它已经在收藏夹里啦',
@@ -99,7 +99,7 @@ Page({
 
     if (isDuplicated === false) {
       myFavor.push({
-        obj_id,
+        objId,
         category,
         name,
         locate,
@@ -117,10 +117,10 @@ Page({
       this.privateData.badge += 1;
 
       wx.request({
-        url: 'https://lin.innenu.com/addToFavor.php',
+        url: 'https://lin.innenu.com/addToFavorFixed.php',
         data: {
           openid: globalData.openid,
-          obj_id,
+          objId,
           category,
           name,
           locate,
