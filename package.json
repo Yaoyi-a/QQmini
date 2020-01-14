@@ -2,9 +2,10 @@
   "name": "play",
   "version": "0.0.1",
   "scripts": {
-    "tsc": "node ./node_modules/typescript/lib/tsc.js",
-    "lint": "yarn run lint:check --fix",
-    "lint:check": "eslint app/",
+    "commit": "git cz",
+    "ts:compile": "tsc",
+    "lint:JS": "yarn run lint:checkJS --fix",
+    "lint:checkJS": "eslint app/",
     "doc": "typedoc --options ./typedoc.json"
   },
   "repository": {

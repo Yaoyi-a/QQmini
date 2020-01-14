@@ -22,8 +22,9 @@ parserOptions:
 
 extends:
   - eslint:all
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
-  - prettier
   - prettier/@typescript-eslint
 
 plugins:
@@ -31,11 +32,15 @@ plugins:
   - "@typescript-eslint"
 
 rules:
-  prettier/prettier: error
+  no-useless-constructor:
+    - off
 
   arrow-parens:
     - error
     - as-needed
+
+  class-methods-use-this:
+    - off
 
   comma-dangle:
     - error
@@ -71,9 +76,7 @@ rules:
   indent:
     - off
     - 2
-    - flatTernaryExpressions: true
-      SwitchCase: 1
-      ignoredNodes:
+    - ignoredNodes:
         - ConditionalExpression
 
   init-declarations:
@@ -108,7 +111,7 @@ rules:
   no-console:
     - off
 
-  no-debugger: 
+  no-debugger:
     - off
 
   no-inline-comments:
@@ -138,6 +141,9 @@ rules:
     - off
 
   no-undefined:
+    - off
+
+  no-unused-vars:
     - off
 
   no-warning-comments:
@@ -176,9 +182,5 @@ rules:
   strict:
     - off
 
-  # tyepscript规则
   "@typescript-eslint/explicit-function-return-type": off
-  "@typescript-eslint/interface-name-prefix": off
-  "@typescript-eslint/no-empty-interface": off
   "@typescript-eslint/no-explicit-any": off
-  "@typescript-eslint/no-triple-slash-reference": off

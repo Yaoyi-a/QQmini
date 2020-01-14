@@ -1,5 +1,8 @@
 /* eslint-disable camelcase */
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/camelcase */
+
+// FIXME: camelcase here
+
 const { globalData } = getApp();
 
 Page({

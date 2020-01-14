@@ -18,12 +18,12 @@ Page({
       }
     });
   },
-  onLoad(e) {
+  onLoad(event) {
     setTimeout(() => {
       ({ openid } = getApp().globalData);
     }, 500);
 
-    ({ orientation } = e);
+    ({ orientation } = event);
     this.setData({ orientation });
     this.refreshInfo();
   },
@@ -33,7 +33,7 @@ Page({
 
   login(event) {
     user = event.detail.userInfo.nickName;
-    this.setData({ is_login: true });
+    this.setData({ isLogin: true });
   },
 
   faBu() {
